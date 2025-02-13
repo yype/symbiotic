@@ -19,4 +19,4 @@ RUN git clone https://github.com/staticafi/symbiotic
 WORKDIR /opt/symbiotic
 RUN git config --global user.email "hey@you.com"
 RUN git config --global user.name "Symbiotic User"
-RUN ./system-build.sh
+RUN ./system-build.sh -j
