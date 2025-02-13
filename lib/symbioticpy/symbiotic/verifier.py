@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import sys
+import os
 
 from . utils import dbg
 from . utils import dbg, print_elapsed_time, restart_counting_time
@@ -85,6 +86,13 @@ class SymbioticVerifier(object):
         process = ProcessRunner()
 
         returncode = process.run(cmd, watch)
+        print("!!!!!! klee cmd: ", cmd)
+        tmp_bc_file = cmd[-1]
+        tmp_dir = os.path.dirname(tmp_bc_file)
+        output_path = os.environ.get('KLEE_DUMP', '/tmp/kleedump')
+        if output_path.endswith("/"):
+            output_path = output_path[:-1]
+        os.system(f"cp -r {tmp_dir} {output_path}")
         if returncode != 0:
             dbg('The verifier return non-0 return status')
 
