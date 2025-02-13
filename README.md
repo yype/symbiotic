@@ -7,6 +7,18 @@ Symbiotic is highly modular and most of its components are self-standing
 programs or LLVM passes that have their own repositories at
 https://github.com/staticafi.
 
+## Ben's Getting started
+
+```
+git clone https://github.com/yype/symbiotic.git
+cd symbiotic
+docker build --no-cache -t symbiotic .
+docker run -it docker.io/library/symbiotic
+
+# klee outputs will be saved to /tmp/dump_path
+KLEE_DUMP=/tmp/dump_path scripts/symbiotic --exit-on-error <test1.c>
+```
+
 ## Getting started
 
 ### Downloading Symbiotic
