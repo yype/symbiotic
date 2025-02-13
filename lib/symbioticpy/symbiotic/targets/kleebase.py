@@ -287,6 +287,8 @@ class SymbioticTool(BaseTool, SymbioticBaseTool):
         self._options = opts
         self._arguments = ['-dump-states-on-halt=0',
                            '--output-stats=0', '--use-call-paths=0',
+                           '-solver-backend=z3',
+                           '--use-query-log=solver:smt2',
                            '--optimize=false', '-silent-klee-assume=1',
                            '-istats-write-interval=60s',
                            '-timer-interval=10',
